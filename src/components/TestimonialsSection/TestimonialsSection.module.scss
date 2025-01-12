@@ -1,0 +1,131 @@
+// TestimonialsSection.module.scss
+
+.testimonialsContainer {
+    text-align: center;
+    padding: 6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    .highlight {
+        color: #ff6600;
+    }
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 1rem;
+    
+    // Responsive design for mobile screens
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1;
+    }
+}
+
+.testimonialCard {
+    width: 475px;
+    height: 115px;
+    padding: 10px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    text-align: left;
+
+    // Responsive: Full width on mobile screens
+    @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        opacity: 1;
+    }
+}
+
+.quoteMark {
+    width: 40px;
+    height: 40px;
+    color: #ff6600;
+    margin-left: 0px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.testimonialText {
+    font-size: 15px;
+    color: #969696;
+    font-weight: 400;
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.author {
+    font-weight: 400;
+    margin-top: 5px;
+    text-align: left;
+    font-size: 15px;
+    color: #ff6600;
+}
+
+.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.navButton {
+    border: none;
+    background: #ff6600;
+    color: white;
+    border-radius: 50%;
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+
+    span {
+        font-size: 20px;
+    }
+
+    &:hover {
+        background: #e05500;
+    }
+
+    // Centering navigation buttons for mobile screens
+    @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+        margin-top: 1rem;
+        display: none;
+    }
+}
+
+.left {
+    margin-right: 1rem;
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+    }
+}
+
+.right {
+    margin-left: 1rem;
+
+    @media (max-width: 768px) {
+        margin-left: 0;
+    }
+}

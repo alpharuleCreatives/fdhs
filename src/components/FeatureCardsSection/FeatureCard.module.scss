@@ -1,0 +1,42 @@
+// Using the same SCSS from WorkSection.module.scss
+$primary-color: #ff5a1f;
+$text-color: #333;
+$background-light: #fef7f5;
+
+.featureCards {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  flex-wrap: wrap;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: $background-light;
+
+  .card {
+    border: 2px solid $primary-color;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    width: 185px;
+    height: 200px;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    img {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $text-color;
+    }
+  }
+}

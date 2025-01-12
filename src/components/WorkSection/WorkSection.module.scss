@@ -1,0 +1,154 @@
+// src/components/WorkSection/WorkSection.module.scss
+$primary-color: #ff5a1f;
+$text-color: #333;
+$background-light: #fef7f5;
+
+.work {
+  padding: 4rem 5%;
+  text-align: center;
+  
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: 2rem;
+
+    .highlight {
+      color: $primary-color;
+    }
+  }
+
+  /* Custom Image Gallery Layout with Controlled Rows */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 4rem;
+
+    // Styling for Odd Rows (Unchanged)
+    .rowodd {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      .leftImage { 
+        img {
+          flex: 1;
+          border-radius: 15px;
+          object-fit: cover;
+          max-width: 300px;
+          width: 200px;
+          height: auto;
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .centerImages {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+          flex: 1;
+          border-radius: 15px;
+          object-fit: cover;
+          max-width: 300px;
+          width: 200px;
+          height: auto;
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+
+    // ✅ Updated Styling for Even Rows
+    .roweven {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      .leftColumn,
+      .rightColumn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        img {
+          flex: 1;
+          border-radius: 15px;
+          object-fit: cover;
+          max-width: 300px;
+          width: 200px;
+          height: auto;
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .centerImage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          flex: 1;
+          border-radius: 15px;
+          object-fit: cover;
+          max-width: 300px;
+          width: 200px;
+          height: auto;
+          transition: transform 0.3s ease-in-out;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ✅ Responsive Design Adjustments
+@media (max-width: 768px) {
+  .work {
+    h2 {
+      font-size: 2rem;
+    }
+
+    .gallery {
+      .rowodd, .roweven {
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          max-width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .work {
+    padding: 2rem 1rem;
+
+    .gallery {
+      .rowodd, .roweven {
+        flex-direction: column;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

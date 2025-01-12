@@ -1,0 +1,205 @@
+// src/components/CollaborationSection/CollaborationSection.module.scss
+
+// Color Variables
+$primary-color: #FF5A1F;
+$text-color: #333;
+$background-color: #fef7f5;
+$box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+// Collaboration Section
+.collaboration {
+    padding: 6rem 8%;
+    background: $background-color;
+
+    // Collaboration Header Styling
+    .collabHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: center;
+        margin-bottom: 5rem;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: $text-color;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+    }
+
+    // Service Section Layout
+    .serviceSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4rem;
+
+        // Text Section Styling
+        .textContent {
+            flex: 1;
+            max-width: 50%;
+            padding-right: 3rem;
+
+            .headingcollaboration {
+                font-size: 2rem;
+                font-weight: bold;
+                color: $primary-color;
+                margin-bottom: 1rem;
+            }
+
+            .paracollaboration {
+                font-size: 1rem;
+                margin-bottom: 1.2rem;
+                color: $text-color;
+            }
+
+            .list {
+                list-style: none;
+                padding: 0;
+
+                .listpoint {
+                    font-size: 1rem;
+                    margin-bottom: 1.5rem;
+                    display: flex;
+                    align-items: flex-start;
+
+                    .tickIcon {
+                        width: 24px;
+                        height: 24px;
+                        padding-right: 10px;
+                    }
+
+                    .highlight {
+                        font-weight: bold;
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        // Image Grid Section Styling
+        .imageGrid {
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            .twoimages{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                img {
+                    width: 70%;
+                    border-radius: 25px;
+                    box-shadow: $box-shadow;
+                    object-fit: cover;
+                }
+            }
+            .singleimage{
+                margin-left: -50px;
+                margin-top: 100px;
+                img {
+                    width: 70%;
+                    border-radius: 25px;
+                    box-shadow: $box-shadow;
+                    object-fit: cover;
+                }
+            }
+           
+        }
+    }
+}
+
+// ✅ Responsive Design Adjustments for Mobile and Tablet
+@media (max-width: 1024px) {
+    .collaboration {
+        padding: 4rem;
+
+        .collabHeader {
+            flex-direction: column;
+            gap: 1rem;
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .logo {
+                width: 60px;
+            }
+        }
+
+        .serviceSection {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .textContent {
+                max-width: 100%;
+                padding: 0;
+
+                h2 {
+                    font-size: 2.5rem;
+                }
+            }
+
+            .imageGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .collaboration {
+        padding: 3rem;
+
+        .collabHeader {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .serviceSection {
+            .textContent {
+                h2 {
+                    font-size: 2.2rem;
+                }
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .collaboration {
+        padding: 2rem;
+
+        .collabHeader {
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .logo {
+                width: 50px;
+            }
+        }
+
+        .serviceSection {
+            .textContent {
+                h2 {
+                    font-size: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

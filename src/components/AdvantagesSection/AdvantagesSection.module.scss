@@ -1,0 +1,124 @@
+// src/components/AdvantagesSection/AdvantagesSection.module.scss
+
+// Color Variables
+$primary-color: #FF5A1F;
+$text-color: #555555;
+$heading-color: #000000;
+$advantagebackground-light: #FFF3F0;
+$box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+
+// Section Styling
+.advantages {
+    background: $advantagebackground-light;
+    padding: 5rem 10%;
+    text-align: center;
+
+    // Heading Styling
+    .advantagesHeading {
+        font-family: 'Nunito', sans-serif;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 54.56px;
+        color: $heading-color;
+        margin-bottom: 3rem;
+    }
+
+    // List Container Styling
+    .advantagesList {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        // Individual Card Styling
+        .advantageCard {
+            padding: 2rem;
+            max-width: 268px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .bulb {
+                display: flex;
+                    justify-content: center;
+                    width: 40px;
+                    margin: auto;
+                
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .subject {
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $text-color;
+            }
+        }
+    }
+}
+
+// ✅ Responsive Adjustments
+@media (max-width: 1024px) {
+    .advantages {
+        padding: 4rem 5%;
+
+        .advantagesList {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .advantages {
+        padding: 3rem 5%;
+
+        .advantagesHeading {
+            font-size: 2.5rem;
+        }
+
+        .advantagesList {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .advantageCard {
+            max-width: 90%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .advantages {
+        padding: 2rem;
+
+        .advantagesHeading {
+            font-size: 2rem;
+        }
+
+        .advantagesList {
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .advantageCard {
+                max-width: 100%;
+                padding: 1.5rem;
+
+                .bulb img {
+                    width: 60px;
+                }
+
+                .subject {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}

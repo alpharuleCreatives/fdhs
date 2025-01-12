@@ -1,0 +1,202 @@
+// src/components/Footer/Footer.module.scss
+
+// Color Variables
+$primary-color: #04354a;
+$text-color: #333;
+$footer-bg: #fefefe;
+$input-bg: #f3f4f6;
+$button-bg: #04354a;
+$button-text: #fff;
+
+// Footer Container
+.footer {
+  .upperfooter {
+    padding: 4rem 5%;
+    background: $footer-bg;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10rem;
+    align-items: flex-start;
+  }
+  // Logo Section Styling
+  .footerLogo {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    width: 125px;
+    height: auto;
+    img {
+      width: 100%;
+    }
+  }
+
+  // Links Section Styling
+  .footerLinks {
+    h3 {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-weight: 400;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  // Subscribe Section Styling
+  .subscribeSection {
+    background: $input-bg;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 350px;
+
+    h3 {
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+
+    .subscribeForm {
+      display: flex;
+      margin-bottom: 1rem;
+
+      input {
+        flex: 1;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        background: white;
+        border: 1px solid #ddd;
+      }
+
+      button {
+        padding: 0.8rem 1rem;
+        background: $button-bg;
+        color: $button-text;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-left: -10px;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .subscribeText {
+      font-size: 0.9rem;
+      color: $text-color;
+    }
+  }
+
+  // Footer Bottom Section
+  .footerBottom {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+    text-align: center;
+
+    a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: $text-color;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ✅ Responsive Design for Tablets and Mobile
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .footerLogo img {
+      margin-bottom: 2rem;
+    }
+
+    .footerLinks ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .subscribeSection {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem;
+
+    .footerLinks ul {
+      flex-direction: column;
+    }
+
+    .subscribeSection {
+      padding: 1.5rem;
+    }
+
+    .footerBottom {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 1rem;
+
+    .upperfooter{
+      justify-content: center;
+      gap: 6rem;
+    }
+
+    .footerLogo img {
+      max-width: 150px;
+    }
+
+    .footerLinks h3,
+    .subscribeSection h3 {
+      font-size: 1.2rem;
+    }
+
+    .subscribeSection {
+      padding: 1rem;
+    }
+
+    .footerBottom {
+      a {
+        margin: 0.5rem;
+      }
+    }
+  }
+}

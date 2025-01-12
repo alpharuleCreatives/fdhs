@@ -1,0 +1,119 @@
+// src/components/EnrollNowPage/EnrollNowPage.module.scss
+
+// Color Variables
+$primary-color: #FF5A1F;
+$text-color: #555555;
+$heading-color: #000000;
+$card-background: #D9D9D9;
+$box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+
+// Enroll Now Section Styling
+.enrollNowSection {
+    margin-top: 4rem;
+    padding: 6rem 5%;
+    overflow: hidden;
+    position: relative;
+    background: #FFD966;
+
+    // Centered Heading Styling
+    .enrollNowHeading {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: $heading-color;
+        text-align: center;
+        margin-bottom: 4rem;
+        margin-top: 0;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    // Courses Card List Container with Infinite Scrolling
+    .coursesCardList {
+        display: flex;
+        gap: 2rem;
+        animation: scroll 20s linear infinite;
+    }
+
+    // Individual Course Card Styling
+    .coursesCard {
+        flex: 0 0 375px;
+        height: 248px;
+        border-radius: 20px;
+        background: #FFFFFF;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// ✅ Infinite Scrolling Animation Keyframes
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+// ✅ Responsive Design
+@media (max-width: 1024px) {
+    .enrollNowSection {
+        padding: 3rem;
+
+        .enrollNowHeading {
+            font-size: 2rem;
+        }
+
+        .coursesCardList {
+            animation: scroll 25s linear infinite;
+        }
+
+        .coursesCard {
+            flex: 0 0 300px;
+            height: 200px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .enrollNowSection {
+        padding: 2rem;
+
+        .enrollNowHeading {
+            font-size: 2rem;
+        }
+
+        .coursesCardList {
+            gap: 1rem;
+            animation: scroll 30s linear infinite;
+        }
+
+        .coursesCard {
+            flex: 0 0 250px;
+            height: 180px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .enrollNowSection {
+        padding: 1.5rem;
+
+        .enrollNowHeading {
+            font-size: 1.8rem;
+        }
+
+        .coursesCardList {
+            animation: scroll 35s linear infinite;
+            gap: 1rem;
+        }
+
+        .coursesCard {
+            flex: 0 0 200px;
+            height: 150px;
+        }
+    }
+}
