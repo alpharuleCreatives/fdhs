@@ -37,6 +37,7 @@ $white: #fff;
     .navLinks {
         display: flex;
         gap: 2rem;
+        align-items: center;
 
         a {
             text-decoration: none;

@@ -1,156 +1,160 @@
 // src/components/AboutSection/AboutSection.module.scss
 $primary-color: #333;
-$accent-color: #FF5A1F;
+$accent-color: #ff5a1f;
 $white: #fff;
 $background: #f9f9f9;
 
 .about {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    background: $background;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  background: $background;
+  position: relative;
+  overflow: hidden;
+
+  // Left Side Image Styling
+  .imageContainer {
+    flex: 1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // ✅ Corrected Shaded Effect Between Image and Content
+  &::before {
+    background: linear-gradient(270deg, #f6f4ef 82.96%, #f6f4ef00);
+    content: "";
+    height: 100%;
+    left: 68%;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 65%;
+    z-index: 1;
+  }
+
+  // Right Side Content with Shaded Background
+  .content {
+    flex: 1;
     position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0 3rem 3rem;
+    z-index: 2;
+    background: linear-gradient(
+        270deg,
+        rgba(246, 244, 239, 0.9) 10.86%,
+        rgba(246, 244, 239, 0) 100%
+    );
 
-    // Left Side Image Styling
-    .imageContainer {
-        flex: 1;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    // ✅ Improved Overlay Image Styling
+    .overlayImage {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      max-width: 300px;
+      height: auto;
+      opacity: 1;
+      z-index: 1;
+      pointer-events: none;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
     }
 
-    // ✅ Corrected Shaded Effect Between Image and Content
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20%;
-        height: 100%;
-        background: linear-gradient(270deg, #F6F4EF 10.86%, rgba(246, 244, 239, 0) 100%);
-        z-index: 1;
-        pointer-events: none;
+    // ✅ Text Content Styling
+    .textContent {
+      position: relative;
+      z-index: 2;
+
+      .headingAboutUs {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $primary-color;
+      }
+
+      .subHeadingAboutUs {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        color: #fe4d01;
+      }
+
+      .paraAboutUs {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: $primary-color;
+      }
     }
-
-    // Right Side Content with Shaded Background
-    .content {
-        flex: 1;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 3rem 0 3rem 3rem;
-        z-index: 2;
-        background: linear-gradient(270deg, #F6F4EF 10.86%, rgba(246, 244, 239, 0) 100%);
-
-        // ✅ Improved Overlay Image Styling
-        .overlayImage {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50%;
-            max-width: 300px;
-            height: auto;
-            opacity: 1;
-            z-index: 1;
-            pointer-events: none;
-
-            img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-        }
-
-        // ✅ Text Content Styling
-        .textContent {
-            position: relative;
-            z-index: 2;
-
-            .headingAboutUs {
-                font-size: 3rem;
-                font-weight: 700;
-                color: $primary-color;
-            }
-
-            .subHeadingAboutUs {
-                font-size: 1.8rem;
-                font-weight: 700;
-                margin-top: 1rem;
-                color: #FE4D01;
-            }
-
-            .paraAboutUs {
-                font-size: 1.2rem;
-                line-height: 1.6;
-                color: $primary-color;
-            }
-        }
-    }
+  }
 }
 
 // ✅ Fully Responsive Design for Tablets and Smaller Screens
 @media (max-width: 768px) {
-    .about {
-        flex-direction: column;
-        text-align: center;
+  .about {
+    flex-direction: column;
+    text-align: center;
 
-        .imageContainer {
-            img {
-                border-radius: 10px;
-            }
-        }
-
-        // ✅ Shaded Effect Corrected for Small Screens
-        &::before {
-            display: none;
-        }
-
-        .content {
-            padding: 2rem;
-            flex-direction: column;
-            align-items: center;
-
-            .textContent {
-                h2 {
-                    font-size: 2.5rem;
-                }
-
-                p {
-                    font-size: 1.1rem;
-                }
-            }
-        }
+    .imageContainer {
+      img {
+        border-radius: 10px;
+      }
     }
+
+    // ✅ Shaded Effect Corrected for Small Screens
+    &::before {
+      display: none;
+    }
+
+    .content {
+      padding: 2rem;
+      flex-direction: column;
+      align-items: center;
+
+      .textContent {
+        h2 {
+          font-size: 2.5rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
 }
 
 // ✅ Fully Responsive Design for Mobile Screens
 @media (max-width: 480px) {
-    .about {
-        padding: 2rem 1rem;
+  .about {
+    padding: 2rem 1rem;
 
-        .content {
-            padding: 1.5rem;
+    .content {
+      padding: 1.5rem;
 
-            .textContent {
-                h2 {
-                    font-size: 2rem;
-                }
-
-                p {
-                    font-size: 1rem;
-                }
-            }
-
-            .overlayImage {
-                width: 60%;
-                max-width: 150px;
-                margin-top: 1rem;
-            }
+      .textContent {
+        h2 {
+          font-size: 2rem;
         }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+
+      .overlayImage {
+        width: 60%;
+        max-width: 150px;
+        margin-top: 1rem;
+      }
     }
+  }
 }
