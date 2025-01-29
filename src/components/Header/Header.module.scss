@@ -1,164 +1,233 @@
 // src/components/Header/Header.module.scss
 
-$primary-color: #FF5A1F;
+$primary-color: #ff5a1f;
 $font-color: #333;
 $white: #fff;
 
 // Flexbox for alignment
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  // Logo Styling
+  .logoContainer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: $white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 
-    // Logo Styling
-    .logoContainer {
-        display: flex;
-        align-items: center;
-
-        .logoImage {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logoText {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: $primary-color;
-        }
+    .logoImage {
+      height: 40px;
+      margin-right: 10px;
     }
 
-    // Navbar Styling (Standard for Large Screens)
-    .navLinks {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-
-        a {
-            text-decoration: none;
-            color: $font-color;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s ease-in-out;
-
-            &:hover {
-                color: $primary-color;
-            }
-        }
+    .logoText {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $primary-color;
     }
+  }
 
-    // CTA Button Styling
-    .ctaButton {
-        background: $primary-color;
-        color: $white!important;
-        padding: 12px 24px;
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        border: none;
-        cursor: pointer;
-        transition: background 0.3s ease-in-out;
+  // Navbar Styling (Standard for Large Screens)
+  .navLinks {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
 
-        &:hover {
-            background: darken($primary-color, 10%);
-        }
-    }
+    a {
+      text-decoration: none;
+      color: $font-color;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
 
-    // ✅ Mobile Menu Button Styling (Hamburger)
-    .mobileMenuButton {
-        display: none;
-        font-size: 2rem;
+      &:hover {
         color: $primary-color;
-        border: none;
-        background: none;
-        cursor: pointer;
+      }
     }
+  }
+
+  // CTA Button Styling
+  .ctaButton {
+    background: $primary-color;
+    color: $white !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+
+  // ✅ Mobile Menu Button Styling (Hamburger)
+  .mobileMenuButton {
+    display: none;
+    font-size: 2rem;
+    color: $primary-color;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+
+// Dropdown Container
+.dropdownContainer {
+  position: relative;
+  display: inline-block;
+
+  .arrowDownIcon {
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: 140%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0px 0px 15px 15px;
+    z-index: 1000;
+    padding: 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 365px;
+    text-align: right;
+    right: 0%;
+
+    a {
+      text-decoration: none;
+      color: #161616;
+      padding: 0.8rem 0;
+      transition: background 0.3s ease;
+      border-bottom: 1px solid #d9d9d9;
+
+      //   &:hover {
+      //     background: lighten($primary-color, 40%);
+      //   }
+    }
+  }
 }
 
 // ✅ Responsive Design for Mobile Screens
 @media (max-width: 768px) {
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-        .logoContainer {
-            flex: 1;
-            justify-content: flex-start;
-        }
-
-        .mobileMenuButton {
-            display: block;
-            font-size: 2rem;
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-        }
-
-        // ✅ Dropdown opens BELOW Navbar
-        .navLinks {
-            display: none;
-            flex-direction: column;
-            gap: 1rem;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            width: 100%;
-            text-align: center;
-            background: $white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 1rem;
-        }
-
-        // ✅ Show Dropdown When Toggled
-        .showMenu {
-            display: flex;
-        }
-
-        .ctaButton {
-            width: 50%;
-            text-align: center;
-            margin: 1rem auto;
-        }
+    .logoContainer {
+      flex: 1;
+      justify-content: flex-start;
     }
+
+    .mobileMenuButton {
+      display: block;
+      font-size: 2rem;
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+    }
+
+    // ✅ Dropdown opens BELOW Navbar
+    .navLinks {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      background: $white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+
+    // ✅ Show Dropdown When Toggled
+    .showMenu {
+      display: flex;
+    }
+
+    .ctaButton {
+      width: 100%;
+      text-align: center;
+      margin: 1rem auto;
+    }
+
+    .dropdownContainer {
+      .dropdownMenu {
+        position: relative;
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0px 0px 15px 15px;
+        z-index: 1000;
+        padding: 2.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        text-align: right;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1rem;
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
 
-        .logoContainer {
-            justify-content: flex-start;
-        }
-
-        .mobileMenuButton {
-            display: block;
-            font-size: 2rem;
-        }
-
-        .navLinks {
-            flex-direction: column;
-            gap: 1rem;
-            width: 30%;
-            align-items: center;
-            background: transparent;
-            border: none;
-            box-shadow: none;  
-            color: $white!important;  
-        }
-
-        .ctaButton {
-            width: 90%;
-            padding: 5px;
-            margin-top: 0px;
-            font-size: 15px!important;
-        }
+    .logoContainer {
+      justify-content: flex-start;
     }
+
+    .mobileMenuButton {
+      display: block;
+      font-size: 2rem;
+    }
+
+    .navLinks {
+      flex-direction: column;
+      gap: 1rem;
+      width: 30%;
+      align-items: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      color: $white !important;
+    }
+
+    .ctaButton {
+      width: 100%;
+      padding: 5px;
+      margin-top: 0px;
+      font-size: 15px !important;
+    }
+
+    .dropdownContainer {
+      .dropdownMenu {
+        background: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 0px 0px 15px 15px;
+        z-index: 1000;
+        padding: 2.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        max-width: 300px;
+        text-align: right;
+      }
+    }
+  }
 }

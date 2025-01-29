@@ -10,12 +10,15 @@ import AdvantagesSection from './components/AdvantagesSection/AdvantagesSection'
 import TestimonialsSection from './components/TestimonialsSection/TestimonialsSection';
 import EnrollNowPage from './components/EnrolnowSection/EnrollNowPage';
 import Footer from './components/Footer/Footer';
+import Recognitions from './components/Recognitions/Recognitions';
+import OurPartners from './components/OurPartners/OurPartners';
 
 const App = () => {
     return (
         <>
             <Header />
             <HeroSection />
+            <Recognitions/>
             <AboutSection />
             <CollaborationSection />
             <WorkSection />
@@ -24,6 +27,7 @@ const App = () => {
             <AdvantagesSection/>
             <TestimonialsSection />
             <EnrollNowPage/>
+            <OurPartners/>
             <Footer />
         </>
     );

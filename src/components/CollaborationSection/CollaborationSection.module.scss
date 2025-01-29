@@ -3,14 +3,13 @@
 // Color Variables
 $primary-color: #ff5a1f;
 $text-color: #333;
-$background-color: #fef7f5;
+$background-color: #FFFDFB;
 $box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
 // Collaboration Section
 .collaboration {
-  padding: 6rem 8%;
+  padding: 5rem 5%;
   background: $background-color;
-
   // Collaboration Header Styling
   .collabHeader {
     display: flex;
@@ -51,28 +50,36 @@ $box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
         color: $primary-color;
         margin-bottom: 1rem;
       }
+      .subheadingcollaboration {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
 
       .paracollaboration {
-        font-size: 1.3rem;
-        font-weight: 700;
+        font-size: 1.1rem;
+        font-weight: 500;
         margin-bottom: 1.2rem;
-        color: $text-color;
+        color: #161616;
       }
 
       .list {
         list-style: none;
         padding: 0;
+        width: 90%;
 
         .listpoint {
-          font-size: 1.2rem;
-          font-weight: 700;
+          font-size: 1.1rem;
+          font-weight: 500;
           margin-bottom: 1.5rem;
           display: flex;
-          align-items: center;
+          width: 100%;
+          align-items: baseline;
 
           .tickIcon {
-            width: 24px;
-            height: 24px;
+            width: 15px;
+            height: 15px;
             padding-right: 10px;
           }
 
@@ -86,31 +93,35 @@ $box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
     // Image Grid Section Styling
     .imageGrid {
-      flex: 1;
       display: flex;
-      gap: 40px;
+      flex-direction: column;
+      gap: 20px;
       margin-top: 20px;
-      .twoimages {
+      .singleimage {
         display: flex;
         flex-direction: column;
         gap: 30px;
         img {
-          width: 85%;
+          width: 70%;
           border-radius: 25px;
           box-shadow: $box-shadow;
           object-fit: cover;
         }
       }
-      .singleimage {
-        margin-left: -50px;
-        margin-top: 100px;
-        img {
-          width: 85%;
-          border-radius: 25px;
-          box-shadow: $box-shadow;
-          object-fit: cover;
-        }
-      }
+    }
+
+    .textContent {
+      flex: 1;
+      max-width: 94%;
+      padding-right: 3rem;
+      margin-top: 2rem;
+    }
+    .highlight {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      color: #161616;
+      width: 80%;
     }
   }
 }
