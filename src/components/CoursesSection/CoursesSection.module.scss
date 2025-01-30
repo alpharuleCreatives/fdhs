@@ -83,7 +83,7 @@ $advantagebackground-light: #FFF3F0;
     // Card List Container
     .coursesCardList {
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
         animation: scroll 20s linear infinite;
     }
 
@@ -147,7 +147,7 @@ $advantagebackground-light: #FFF3F0;
         .upcomingCoursesSection {
             .coursesCardList {
                 flex-direction: row;
-                animation: scroll 40s linear infinite;
+                animation: scroll 20s linear infinite;
             }
 
             .coursesCard {
@@ -160,10 +160,14 @@ $advantagebackground-light: #FFF3F0;
 
 @media (max-width: 480px) {
     .courses {
-        padding: 1.5rem;
+        padding: 0.8rem;
 
         h2 {
             font-size: 1.8rem;
+        }
+
+        .underline{
+            width: 100%!important;
         }
 
         .upcomingCoursesSection {
@@ -172,8 +176,8 @@ $advantagebackground-light: #FFF3F0;
             }
 
             .coursesCard {
-                width: 220px;
-                height: 150px;
+                width: 200px;
+                height: 135px;
             }
         }
     }

@@ -1,53 +1,121 @@
 .recognitions {
-    padding: 2rem;
-    background-color: #FFD966;
+  padding: 2rem;
+  background-color: #ffd966;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 0.1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.1rem;
+  }
+
+  .title {
+    font-family: "Nunito", sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 76px;
+    letter-spacing: -0.02em;
     text-align: center;
-  
-    .title {
-      font-family: "Nunito", sans-serif;
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 76px;
-      letter-spacing: -0.02em;
-      text-align: center;
-      color: #000000;
-      margin-bottom: 3rem;
+    color: #000000;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      line-height: 50px;
     }
-  
-    .carousel {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-  
-      .carousel-track {
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+      line-height: 40px;
+    }
+  }
+
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .carousel-track {
+      display: flex;
+      animation: scroll 20s linear infinite;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        animation: scrollMobile 25s linear infinite;
+      }
+
+      @media (max-width: 480px) {
+        animation: scrollMobile 25s linear infinite; // Disable auto-scroll, enable manual swipe
+        overflow-x: visible;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
         display: flex;
-        animation: scroll 20s linear infinite;
-  
-        .slide {
-          flex: 0 0 auto;
-          width: 150px;
-          padding: 0 1rem;
-  
-          img {
-            max-width: 100%;
-            min-width: 130px;
-            max-height: 130px;
-            object-fit: contain;
+        align-items: center;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .slide {
+        flex: 0 0 auto;
+        width: 150px;
+        padding: 0 1rem;
+        scroll-snap-align: center;
+
+        @media (max-width: 768px) {
+          width: 120px;
+          padding: 0 0.1rem;
+        }
+
+        @media (max-width: 480px) {
+          width: 100px;
+          padding: 0 0.1rem;
+        }
+
+        img {
+          max-width: 100%;
+          min-width: 130px;
+          max-height: 130px;
+          object-fit: contain;
+
+          @media (max-width: 768px) {
+            min-width: 100px;
+            max-height: 100px;
+          }
+
+          @media (max-width: 480px) {
+            min-width: 80px;
+            max-height: 80px;
           }
         }
       }
     }
   }
-  
-  // Keyframes for smooth infinite scrolling
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
+}
+
+// Keyframes for smooth infinite scrolling (Desktop)
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-  
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+// Slower scrolling for tablets
+@keyframes scrollMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

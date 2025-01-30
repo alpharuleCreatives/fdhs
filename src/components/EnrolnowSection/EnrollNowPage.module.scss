@@ -2,7 +2,7 @@
 $primary-color: #ff5a1f;
 $text-color: #555555;
 $heading-color: #000000;
-$background-color: #FFFDFB;
+$background-color: #fffdfb;
 $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 
 // Enroll Now Section Styling
@@ -97,7 +97,7 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 // Mobile Optimization: Manual Scrolling Only
 @media (max-width: 768px) {
   .videoContainer {
-    overflow-x: auto; 
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
 
@@ -118,13 +118,17 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 480px) {
-  .videoFrameList {
-    gap: 1rem;
-    animation: none;
+  .enrollNowSection {
+    padding: 0.1rem;
+    margin-bottom: 2rem;
+    .videoFrameList {
+      gap: 1rem;
+      animation: none;
 
-    .videoFrame {
-      flex: 0 0 90vw;
-      height: 180px;
+      .videoFrame {
+        flex: 0 0 90vw;
+        height: 180px;
+      }
     }
   }
 }

@@ -139,6 +139,10 @@ $background-light: #fef7f5;
   }
 
   @media (max-width: 480px) {
+    .work {
+      padding: 2rem 5%;
+    }
+
     .mainHeading {
       font-size: 28px;
       line-height: 40px;
@@ -152,13 +156,16 @@ $background-light: #fef7f5;
     .subHeading {
       font-size: 24px;
       line-height: 36px;
+      margin-left: 0px;
+      margin-bottom: 1rem;
     }
 
     .gallery {
       .column {
         .imageCard {
-          width: 100%;
+          width: 130px;
           border-radius: 15px;
+          height: 130px;
         }
       }
     }
