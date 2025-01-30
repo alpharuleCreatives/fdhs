@@ -1,5 +1,3 @@
-// TestimonialsSection.module.scss
-
 .testimonialsContainer {
     text-align: center;
     padding: 6rem;
@@ -16,20 +14,45 @@
     }
 }
 
-.carousel {
+/* Wrapper to Position Buttons & Carousel Correctly */
+.carouselWrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: relative;
-    gap: 1rem;
-    
-    // Responsive design for mobile screens
-    @media (max-width: 768px) {
-        flex-direction: column;
-        gap: 1;
+    margin-top: 50px;
+}
+
+/* Carousel Container */
+.carouselContainer {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;  // Hide scrollbar on Firefox
+    -ms-overflow-style: none;  // Hide scrollbar on IE/Edge
+    height: 150px;
+    padding-top: 20pxy;
+
+    &::-webkit-scrollbar {
+        display: none;  // Hide scrollbar on Chrome/Safari
     }
 }
 
+.carousel {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease;
+    scroll-snap-align: center;
+
+    @media (max-width: 768px) {
+        overflow-x: auto;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+}
+
+/* Individual Testimonial Cards */
 .testimonialCard {
     width: 475px;
     height: 115px;
@@ -40,8 +63,8 @@
     opacity: 0.4;
     transition: all 0.5s ease;
     text-align: left;
+    scroll-snap-align: center;
 
-    // Responsive: Full width on mobile screens
     @media (max-width: 768px) {
         width: 90%;
         height: auto;
@@ -50,6 +73,7 @@
     }
 }
 
+/* Quote Mark Styling */
 .quoteMark {
     width: 40px;
     height: 40px;
@@ -61,6 +85,7 @@
     }
 }
 
+/* Testimonial Text */
 .testimonialText {
     font-size: 15px;
     color: #969696;
@@ -71,6 +96,7 @@
     }
 }
 
+/* Author Styling */
 .author {
     font-weight: 400;
     margin-top: 5px;
@@ -79,23 +105,28 @@
     color: #ff6600;
 }
 
+/* Active Testimonial */
 .active {
     opacity: 1;
     transform: scale(1.05);
 }
 
+/* Navigation Buttons */
 .navButton {
     border: none;
     background: #ff6600;
     color: white;
     border-radius: 50%;
-    width: 70px;
+    width: 50px;
     height: 50px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 
     span {
         font-size: 20px;
@@ -105,27 +136,17 @@
         background: #e05500;
     }
 
-    // Centering navigation buttons for mobile screens
     @media (max-width: 768px) {
-        width: 50px;
-        height: 50px;
-        margin-top: 1rem;
-        display: none;
+        display: none; /* Hide on mobile */
     }
 }
 
+/* Left Button - Positioned on the Left Side */
 .left {
-    margin-right: 1rem;
-
-    @media (max-width: 768px) {
-        margin-right: 0;
-    }
+    left: -60px;
 }
 
+/* Right Button - Positioned on the Right Side */
 .right {
-    margin-left: 1rem;
-
-    @media (max-width: 768px) {
-        margin-left: 0;
-    }
+    right: -60px;
 }

@@ -8,11 +8,10 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 // Enroll Now Section Styling
 .enrollNowSection {
   padding: 6rem 5%;
-  overflow: hidden;
-  position: relative;
   background: $background-color;
+  position: relative;
+  overflow: hidden;
 
-  // Heading
   .enrollNowHeading {
     font-size: 2.5rem;
     font-weight: bold;
@@ -22,7 +21,18 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     font-family: "Nunito", sans-serif;
   }
 
-  // Video Frame List with Infinite Scrolling
+  .videoContainer {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; // Hide scrollbar on Firefox
+    -ms-overflow-style: none; // Hide scrollbar on IE/Edge
+
+    &::-webkit-scrollbar {
+      display: none; // Hide scrollbar on Chrome/Safari
+    }
+  }
+
   .videoFrameList {
     display: flex;
     gap: 3rem;
@@ -30,13 +40,14 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     padding: 0 5%;
 
     .videoFrame {
-      flex: 0 0 60vw;
+      flex: 0 0 50vw;
       height: 350px;
       border-radius: 20px;
       background: #ffffff;
       box-shadow: $box-shadow;
       overflow: hidden;
       position: relative;
+      scroll-snap-align: center;
 
       video {
         width: 100%;
@@ -53,7 +64,7 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-// Infinite Scrolling Animation
+// Infinite Scrolling Animation (Only for Desktop)
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -83,42 +94,37 @@ $box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
+// Mobile Optimization: Manual Scrolling Only
 @media (max-width: 768px) {
-  .enrollNowSection {
-    padding: 2rem;
+  .videoContainer {
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
-    .enrollNowHeading {
-      font-size: 2rem;
+    &::-webkit-scrollbar {
+      display: none;
     }
+  }
 
-    .videoFrameList {
-      gap: 1rem;
-      animation: scroll 30s linear infinite;
+  .videoFrameList {
+    gap: 1rem;
+    animation: none; // Disable animation for user scroll
 
-      .videoFrame {
-        flex: 0 0 70vw;
-        height: 200px;
-      }
+    .videoFrame {
+      flex: 0 0 70vw;
+      height: 200px;
     }
   }
 }
 
 @media (max-width: 480px) {
-  .enrollNowSection {
-    padding: 1.5rem;
+  .videoFrameList {
+    gap: 1rem;
+    animation: none;
 
-    .enrollNowHeading {
-      font-size: 1.8rem;
-    }
-
-    .videoFrameList {
-      gap: 1rem;
-      animation: scroll 35s linear infinite;
-
-      .videoFrame {
-        flex: 0 0 90vw;
-        height: 180px;
-      }
+    .videoFrame {
+      flex: 0 0 90vw;
+      height: 180px;
     }
   }
 }
